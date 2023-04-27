@@ -3,7 +3,7 @@ from behave import given, when, then
 
 
 TERMS_SERVICE = (By.CSS_SELECTOR,'a[href="/policies/terms-of-service"]')
-
+EMAIL_TEXT = (By.CSS_SELECTOR, '#ContactFooter-email')
 
 @given('Open main page')
 def open_main_page(context):
@@ -18,3 +18,13 @@ def terms_of_service(context):
 @then('Verify Terms page opened')
 def terms_of_service_opened(context):
     context.app.terms_of_service_cure_skin.terms_of_service_opened()
+
+
+# #@when('From page footer, in email field enter {VK}')
+# def enter_wrong_email(context):
+#     pass
+#
+#
+# @then('Verify error message displays')
+# def error_message_displays(context):
+#     pass

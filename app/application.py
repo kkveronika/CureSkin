@@ -19,4 +19,4 @@ class Application:
         self.terms_of_service_cure_skin = TermsOfServise(self.driver)
 
 
-        # self.search_results_page = SearchResultsPage(self.driver)
+        # self.search_results_page = SearchResultsPage(self.driver).
