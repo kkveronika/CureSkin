@@ -7,8 +7,8 @@ Feature: Home Page
     # Enter steps here
 
 #Feature: Home Page
-#  Scenario: User enter invalid email
+  #Scenario: User enter invalid email
 #  Given Open main page
-#  When From page footer, in email field enter VK
-#  Then Verify error message displays
-
+#  When From page footer, in email field enter vvvkkk
+#    When Click on search button
+#     Then Verify error message displays
