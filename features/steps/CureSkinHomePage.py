@@ -18,6 +18,8 @@ def terms_of_service(context):
 
 @then('Verify Terms page opened')
 def terms_of_service_opened(context):
+    # from time import sleep
+    # sleep(5)
     context.app.terms_of_service_cure_skin.terms_of_service_opened()
 
 
