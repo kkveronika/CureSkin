@@ -16,6 +16,11 @@ def terms_of_service(context):
    context.app.main_cure_skin_page.click_on_terms_page()
 
 
+@when('Click on policies')
+def click_on_policies(context):
+    context.driver.find_element(By.XPATH, '//h2[contains(text(), "Our policies")]').click()
+
+
 @then('Verify Terms page opened')
 def terms_of_service_opened(context):
     # from time import sleep

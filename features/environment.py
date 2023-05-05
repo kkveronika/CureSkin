@@ -9,6 +9,8 @@ from selenium.webdriver.chrome.options import Options as ChromeOptions
 from support.logger import logger, MyListener
 from selenium.webdriver.support.ui import WebDriverWait
 
+
+
 def browser_init(context):
     """
     :param context: Behave context
@@ -39,25 +41,31 @@ def browser_init(context):
     #        # 'sessionName': test_name
     #     }
     # }
-    desired_cap = {
-        'bstack:options': {
-            "os": "OS X",
-            "osVersion": "Ventura",
-            "browserVersion": "latest",
-            "local": "false",
-            "seleniumVersion": "3.10.0",
-        },
-        "browserName": "Firefox",
-    }
+    # desired_cap = {
+    #     'bstack:options': {
+    #         "os": "OS X",
+    #         "osVersion": "Ventura",
+    #         "browserVersion": "latest",
+    #         "local": "false",
+    #         "seleniumVersion": "3.10.0",
+    #     },
+    #     "browserName": "Firefox",
+    # }
+    #
+    # url = f'http://{bs_user}:{bs_key}@hub-cloud.browserstack.com/wd/hub'
+    # context.driver = webdriver.Remote(url, desired_capabilities=desired_cap)
 
-    url = f'http://{bs_user}:{bs_key}@hub-cloud.browserstack.com/wd/hub'
-    context.driver = webdriver.Remote(url, desired_capabilities=desired_cap)
+    ### MOBILE ######
+    mobile_emulation = {"deviceName": "Nexus 5"}
+    chrome_options = webdriver.ChromeOptions()
+    chrome_options.add_experimental_option("mobileEmulation", mobile_emulation)
+    context.driver = webdriver.Chrome(executable_path='/chromedriver.exe', chrome_options=chrome_options)
 
     context.driver.maximize_window()
     context.driver.implicitly_wait(5)
     context.driver.wait = WebDriverWait(context.driver, 10)
-
     context.app = Application(context.driver)
+
 
 def before_scenario(context, scenario):
     # print('\nStarted scenario: ', scenario.name)
